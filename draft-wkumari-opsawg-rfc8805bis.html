@@ -4,16 +4,22 @@
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>TODO - Your title</title>
-<meta content="Your Name Here" name="author">
-<meta content="
-       TODO Abstract 
-    " name="description">
+<title>Self-Published IP Geolocation Feeds - Version 2</title>
+<meta content="Warren Kumari" name="author">
+<meta content="Tommy Pauly" name="author">
+<meta content='
+       RFC8805 defines a format whereby a network operator can publish a mapping of IP
+address prefixes to simplified geolocation information, colloquially termed a
+"geolocation feed". Interested parties consume these feeds to update or merge
+with other geolocation data sources and procedures. 
+       This document updates RFC8805 to specify a JSON encoding for the goelocation
+feed (JSON) to allow for the inclusion of additional information, and to be
+more extensible. 
+    ' name="description">
 <meta content="xml2rfc 3.28.1" name="generator">
-<meta content="next generation" name="keyword">
-<meta content="unicorn" name="keyword">
-<meta content="sparkling distributed ledger" name="keyword">
-<meta content="draft-todo-yourname-protocol-latest" name="ietf.draft">
+<meta content="geolocation" name="keyword">
+<meta content="streaming" name="keyword">
+<meta content="draft-wkumari-opsawg-rfc8805bis-latest" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.28.1
     Python 3.12.9
@@ -29,7 +35,7 @@
     setuptools 70.3.0
     wcwidth 0.2.13
 -->
-<link href="draft-todo-yourname-protocol.xml" rel="alternate" type="application/rfc+xml">
+<link href="draft-wkumari-opsawg-rfc8805bis.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">@font-face {
   font-family: 'Lora';
@@ -1045,11 +1051,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <table class="ears">
 <thead><tr>
 <td class="left">Internet-Draft</td>
-<td class="center">TODO - Abbreviation</td>
+<td class="center">RFC8805bis</td>
 <td class="right">April 2025</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Here</td>
+<td class="left">Kumari &amp; Pauly</td>
 <td class="center">Expires 17 October 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
@@ -1060,7 +1066,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">WG Working Group</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-todo-yourname-protocol-latest</dd>
+<dd class="internet-draft">draft-wkumari-opsawg-rfc8805bis-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
 <time datetime="2025-04-15" class="published">15 April 2025</time>
@@ -1069,19 +1075,29 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
 <dd class="expires"><time datetime="2025-10-17">17 October 2025</time></dd>
-<dt class="label-authors">Author:</dt>
+<dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
-      <div class="author-name">Y. N. Here</div>
-<div class="org">Your Organization Here</div>
+      <div class="author-name">W. Kumari</div>
+<div class="org">Google</div>
+</div>
+<div class="author">
+      <div class="author-name">T. Pauly</div>
+<div class="org">Apple, Inc</div>
 </div>
 </dd>
 </dl>
 </div>
-<h1 id="title">TODO - Your title</h1>
+<h1 id="title">Self-Published IP Geolocation Feeds - Version 2</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">TODO Abstract<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">RFC8805 defines a format whereby a network operator can publish a mapping of IP
+address prefixes to simplified geolocation information, colloquially termed a
+"geolocation feed". Interested parties consume these feeds to update or merge
+with other geolocation data sources and procedures.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-2">This document updates RFC8805 to specify a JSON encoding for the goelocation
+feed (JSON) to allow for the inclusion of additional information, and to be
+more extensible.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1090,13 +1106,13 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
 <p id="section-note.1-2">
         The latest revision of this draft can be found at <span><a href="https://example.com/LATEST">https://example.com/LATEST</a></span>.
-        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-todo-yourname-protocol/">https://datatracker.ietf.org/doc/draft-todo-yourname-protocol/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-wkumari-opsawg-rfc8805bis/">https://datatracker.ietf.org/doc/draft-wkumari-opsawg-rfc8805bis/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
 <p id="section-note.1-3">
         Discussion of this document takes place on the
         WG Working Group mailing list (<span><a href="mailto:WG@example.com">mailto:WG@example.com</a></span>),
         which is archived at <span><a href="https://example.com/WG">https://example.com/WG</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
 <p id="section-note.1-4">Source for this draft and an issue tracker can be found at
-        <span><a href="https://github.com/USER/REPO">https://github.com/USER/REPO</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
+        <span><a href="https://github.com/wkumari/rfc8805bis">https://github.com/wkumari/rfc8805bis</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
 </section>
 <div id="status-of-memo">
 <section id="section-boilerplate.1">
@@ -1153,19 +1169,33 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-format" class="internal xref">Format</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-notes-to-self" class="internal xref">Notes to self:</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-references" class="internal xref">References</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
+                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1176,7 +1206,60 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">TODO Introduction<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">This document updates <span>[<a href="#RFC8805" class="cite xref">RFC8805</a>]</span>, which defined a format whereby a network
+operator can publish a mapping of IP address prefixes to simplified geolocation
+information, colloquially termed a "geolocation feed". Interested parties can
+poll and parse these feeds to update or merge with other geolocation data
+sources and procedures.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">RFC8805 specified a CSV format, which while simple, has limitations in terms of
+extensibility and the amount of information that can be included. This document
+specifies a JSON format for the geolocation feed to allow for the inclusion of
+additional information, be more extensible, and also more easily parsed by
+modern libraries.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">The original CSV format in <span>[<a href="#RFC8805" class="cite xref">RFC8805</a>]</span> was created in 2013, and while it has
+served its purpose, many operators would like the ability to provide (and
+consume) additional information associated with the geolocated prefix.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">The primary additional information that is included relates to the capabilities
+of the network connection associated with a prefix. For example example, cable
+networks generally have high throughput and higher latency/jitter, while
+cellular devices generally have smaller screens. By exposing this information
+to network providers, we can help them to make better decisions about how to
+optimize the content for the end user.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-5">This is especially important for video streaming and gaming applications, where
+the quality of the experience is heavily dependent on the network conditions.<a href="#section-1-5" class="pilcrow">¶</a></p>
+<p id="section-1-6">The JSON format is designed to be extensible, so that new fields can be added
+in the future without breaking existing implementations. This is done by using
+a "key-value" pair structure, where each key is a string and the value can be
+any valid JSON value (string, number, object, array, etc.). This allows for the
+inclusion of additional information in the future without breaking existing
+implementations. For example, if a new field is added to the JSON format,
+existing implementations will simply ignore it, while new implementations can
+take advantage of it.<a href="#section-1-6" class="pilcrow">¶</a></p>
+<p id="section-1-7">The JSON format is also designed to be human-readable, so that operators can
+easily understand the information that is being published. This is done by
+using a simple and consistent naming convention for the keys, and by using a
+clear and concise structure for the values.<a href="#section-1-7" class="pilcrow">¶</a></p>
+<p id="section-1-8">In addition to being more extensible, experiance with RFC8805 has shown that
+many prefixes share common characteristics. For example, many prefixes are
+associated with a single location. In order to reduce the amount of data that
+needs to be published, this document allows for the use of "prefix groups". A
+prefix group is a set of prefixes that share common characteristics, and can be
+represented as a single entry in the JSON format. This allows for the
+publication of a single entry for a group of prefixes, rather than a separate
+entry for each prefix.<a href="#section-1-8" class="pilcrow">¶</a></p>
+<p id="section-1-9"><span>[<a href="#RFC8805" class="cite xref">RFC8805</a>]</span> specified the location as being: alpha2code,region,city,postal_code
+(with postal_code as being deprecated)<a href="#section-1-9" class="pilcrow">¶</a></p>
+<p id="section-1-10">This is both simultaneously too specific and not specific enough. For example,
+Tokyo covers around 2000 square kilometers, and the city of Tokyo has a
+population of around 14 million people, while Thurmond, West Virginia, USA
+covers less than 0.5 square kilometers and, as of 2024, had a population of 2.<a href="#section-1-10" class="pilcrow">¶</a></p>
+<p id="section-1-11">To help address this, the new JSON format uses <span>[<a href="#RFC7946" class="cite xref">RFC7946</a>]</span> GeoJSON format to
+specify the location (with constraints to ensure that the targeting is not too
+specific). This allows for the use of polygons, and other geometric shapes to
+represent the location of the prefix.  ((TODO (WK): I put this in for now, but
+"with constraints" is, um, handwavey. I think that this is likely already
+"solved" by work in the Geoprive WG -- talk to Ray B to figure out what we
+should reference, etc.!))<a href="#section-1-11" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1190,37 +1273,229 @@ described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</s
 appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="security-considerations">
+<div id="format">
 <section id="section-3">
-      <h2 id="name-security-considerations">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+      <h2 id="name-format">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-format" class="section-name selfRef">Format</a>
       </h2>
-<p id="section-3-1">TODO Security<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-1">The new JSON format is informed both by <span>[<a href="#SVTA5010" class="cite xref">SVTA5010</a>]</span> and from numerous
+discussions with operators, goeolocation providers, and real-time streaming
+providers.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-2">The JSON encoding of the geolocation feed is a JSON object, with the following
+fields (NOTE: This is very much a first draft, and this <strong>will</strong> change):<a href="#section-3-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3-3.1">
+          <p id="section-3-3.1.1"><code>version</code>: The version of the geolocation feed format. This field is
+required, and <span class="bcp14">MUST</span> be set to "1.0".<a href="#section-3-3.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-3-3.2">
+          <p id="section-3-3.2.1"><code>prefixes</code>: An array of prefix objects, each of which represents a single
+prefix in CIDR notation.<a href="#section-3-3.2.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3-3.2.2.1">
+              <p id="section-3-3.2.2.1.1"><code>connection</code>: The type of connection associated with the prefix. This field
+is optional, and <span class="bcp14">MUST</span> be set to one of the following values:<a href="#section-3-3.2.2.1.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3-3.2.2.1.2.1">
+                  <p id="section-3-3.2.2.1.2.1.1"><code>cable</code>: A cable connection.<a href="#section-3-3.2.2.1.2.1.1" class="pilcrow">¶</a></p>
+</li>
+                <li class="normal" id="section-3-3.2.2.1.2.2">
+                  <p id="section-3-3.2.2.1.2.2.1"><code>fixed</code>: A fixed-line connection (e.g fiber, metro-Ethernet).<a href="#section-3-3.2.2.1.2.2.1" class="pilcrow">¶</a></p>
+</li>
+                <li class="normal" id="section-3-3.2.2.1.2.3">
+                  <p id="section-3-3.2.2.1.2.3.1"><code>cellular</code>: A cellular connection.<a href="#section-3-3.2.2.1.2.3.1" class="pilcrow">¶</a></p>
+</li>
+                <li class="normal" id="section-3-3.2.2.1.2.4">
+                  <p id="section-3-3.2.2.1.2.4.1"><code>satellite</code>: A satellite connection.<a href="#section-3-3.2.2.1.2.4.1" class="pilcrow">¶</a></p>
+</li>
+                <li class="normal" id="section-3-3.2.2.1.2.5">
+                  <p id="section-3-3.2.2.1.2.5.1"><code>wireless</code>: A wireless connection.<a href="#section-3-3.2.2.1.2.5.1" class="pilcrow">¶</a></p>
+</li>
+                <li class="normal" id="section-3-3.2.2.1.2.6">
+                  <p id="section-3-3.2.2.1.2.6.1"><code>other</code>: Any other type of connection. ((TODO (WK): I suspect that there
+is already a list of connection types that we can just reference. In
+addition, I suspect we should just list connection attributes, such as
+latency, bandwidth, "cost", jitter, etc. Otherwise, we are going to have to
+keep updating this document every time someone invents a new connection
+type.))<a href="#section-3-3.2.2.1.2.6.1" class="pilcrow">¶</a></p>
+</li>
+              </ul>
+</li>
+            <li class="normal" id="section-3-3.2.2.2">
+              <p id="section-3-3.2.2.2.1"><code>location</code>: The location associated with the prefix. This field is
+optional, and <span class="bcp14">MUST</span> be set to a GeoJSON object. The GeoJSON object <span class="bcp14">MUST</span> be a
+<code>FeatureCollection</code> with a single <code>Feature</code> object, which <span class="bcp14">MUST</span> have a
+<code>geometry</code> field that is a <code>Polygon</code> or <code>MultiPolygon</code>.<a href="#section-3-3.2.2.2.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+</li>
+      </ul>
+</section>
+</div>
+<div id="security-considerations">
+<section id="section-4">
+      <h2 id="name-security-considerations">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+      </h2>
+<p id="section-4-1">TODO Security.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-2">Include:<a href="#section-4-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4-3.1">
+          <p id="section-4-3.1.1">The security considerations from <span>[<a href="#RFC8805" class="cite xref">RFC8805</a>]</span>.<a href="#section-4-3.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-4-3.2">
+          <p id="section-4-3.2.1">The security considerations from <span>[<a href="#RFC7946" class="cite xref">RFC7946</a>]</span>.<a href="#section-4-3.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-4-3.3">
+          <p id="section-4-3.3.1">The location specification <span class="bcp14">MUST</span> not be smaller than XX square kilometers, and
+<span class="bcp14">MUST</span> cover at least YY people. The consumer of the feed <span class="bcp14">MUST</span> not use the
+location if the location is smaller than XX. The exact values of XX and YY
+are TBD.<a href="#section-4-3.3.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
 </section>
 </div>
 <div id="iana-considerations">
-<section id="section-4">
+<section id="section-5">
       <h2 id="name-iana-considerations">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-4-1">This document has no IANA actions.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">This document has no IANA actions.<a href="#section-5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="sec-normative-references">
-<section id="section-5">
-      <h2 id="name-normative-references">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<div id="notes-to-self">
+<section id="section-6">
+      <h2 id="name-notes-to-self">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-notes-to-self" class="section-name selfRef">Notes to self:</a>
       </h2>
+<p id="section-6-1">Also get input from:<a href="#section-6-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6-2.1">
+          <p id="section-6-2.1.1">Ray Bellis (Geopriv chair)<a href="#section-6-2.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-6-2.2">
+          <p id="section-6-2.2.1">Massimo Candela (geolocate much?!)<a href="#section-6-2.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-6-2.3">
+          <p id="section-6-2.3.1">Wes Hardaker<a href="#section-6-2.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-6-2.4">
+          <p id="section-6-2.4.1">Ninrod Levy / AT&amp;T<a href="#section-6-2.4.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-6-2.5">
+          <p id="section-6-2.5.1">Zoltán Szamonek<a href="#section-6-2.5.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-6-2.6">
+          <p id="section-6-2.6.1">Erik Kline (co-author?)<a href="#section-6-2.6.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-6-2.7">
+          <p id="section-6-2.7.1">Jason Livingood (co-author?)<a href="#section-6-2.7.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-6-3">ToDo:<a href="#section-6-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6-4.1">
+          <p id="section-6-4.1.1">Add an actual schema<a href="#section-6-4.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-6-4.2">
+          <p id="section-6-4.2.1">Add examples<a href="#section-6-4.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-6-4.3">
+          <p id="section-6-4.3.1">Figure out how to do the "prefix groups" -- I think that this is just a list
+of prefixes, but we need to be careful about how we do this.<a href="#section-6-4.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-6-4.4">
+          <p id="section-6-4.4.1">Figure out how to specify the location:<a href="#section-6-4.4.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6-4.4.2.1">
+              <p id="section-6-4.4.2.1.1">I think that we should use the GeoJSON format, but we need to be careful
+about how we do this. For example, we need to make sure that the location
+is not too specific. It looks like Geopriv will be helpful here!<a href="#section-6-4.4.2.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-6-4.4.2.2">
+              <p id="section-6-4.4.2.2.1">We also need to make sure that the location is not too large (e.g. a
+country).<a href="#section-6-4.4.2.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-6-4.4.2.3">
+              <p id="section-6-4.4.2.3.1">We also need to make sure that the location is not too small (e.g. a single
+building).<a href="#section-6-4.4.2.3.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+</li>
+        <li class="normal" id="section-6-4.5">
+          <p id="section-6-4.5.1">Figure out how to specify the connection type:<a href="#section-6-4.5.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6-4.5.2.1">
+              <p id="section-6-4.5.2.1.1">I suspect that there should be a registry, with some initial values.<a href="#section-6-4.5.2.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-6-4.5.2.2">
+              <p id="section-6-4.5.2.2.1">We should also provide a way to specify attributes, possibly something like this:<a href="#section-6-4.5.2.2.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-6-4.5.3">
+<code>
+  - `connection`: {
+      "type": "cable",
+      "attributes": {
+        "latency": 10,
+        "bandwidth": 1000,
+        "jitter": 800,
+        "cost": 0.01
+      }
+    }
+            </code>
+- If we list attributes, do we also want a named "type"? E.g if you know that
+  the last-hop latency is 10ms, and 250Mbps, with a jitter of 800ms, do you
+  care / need to know that this is "cable" vs "fiber"? Also, why would you
+  care if this is "fiber" vs "ethernet" vs "free-space laser"? Ain't none of
+  your business, as long as the packets get there, right?<a href="#section-6-4.5.3" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+</section>
+</div>
+<div id="sec-combined-references">
+<section id="section-7">
+      <h2 id="name-references">
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-references" class="section-name selfRef">References</a>
+      </h2>
+<div id="sec-normative-references">
+<section id="section-7.1">
+        <h3 id="name-normative-references">
+<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+        </h3>
 <dl class="references">
 <dt id="RFC2119">[RFC2119]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC7946">[RFC7946]</dt>
+        <dd>
+<span class="refAuthor">Butler, H.</span>, <span class="refAuthor">Daly, M.</span>, <span class="refAuthor">Doyle, A.</span>, <span class="refAuthor">Gillies, S.</span>, <span class="refAuthor">Hagen, S.</span>, and <span class="refAuthor">T. Schaub</span>, <span class="refTitle">"The GeoJSON Format"</span>, <span class="seriesInfo">RFC 7946</span>, <span class="seriesInfo">DOI 10.17487/RFC7946</span>, <time datetime="2016-08" class="refDate">August 2016</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7946">https://www.rfc-editor.org/rfc/rfc7946</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
-    <dd>
+        <dd>
 <span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC8805">[RFC8805]</dt>
+      <dd>
+<span class="refAuthor">Kline, E.</span>, <span class="refAuthor">Duleba, K.</span>, <span class="refAuthor">Szamonek, Z.</span>, <span class="refAuthor">Moser, S.</span>, and <span class="refAuthor">W. Kumari</span>, <span class="refTitle">"A Format for Self-Published IP Geolocation Feeds"</span>, <span class="seriesInfo">RFC 8805</span>, <span class="seriesInfo">DOI 10.17487/RFC8805</span>, <time datetime="2020-08" class="refDate">August 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8805">https://www.rfc-editor.org/rfc/rfc8805</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 </dl>
+</section>
+</div>
+<div id="sec-informative-references">
+<section id="section-7.2">
+        <h3 id="name-informative-references">
+<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+        </h3>
+<dl class="references">
+<dt id="SVTA5010">[SVTA5010]</dt>
+      <dd>
+<span class="refTitle">"SVTA5010: Geo-Data for IPv6"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.svta.org/product/svta5010/">https://www.svta.org/product/svta5010/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
 </section>
 </div>
 <div id="acknowledgments">
@@ -1228,20 +1503,37 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="appendix-A-1">TODO acknowledge.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-1">This document was inspired by discussions with numerous operators, geolocation
+providers, and real-time streaming providers. In addition, the work of the
+Streaming Video Technology Alliance (SVTA) in defining the SVTA5010 is
+appreciated.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-2">There have been many discussions over the years about updating this format;
+unfortunately I have managed to forget who all these discussions were with. If
+you are one of these people, please let me know and I will add you to the
+acknowledgments!<a href="#appendix-A-2" class="pilcrow">¶</a></p>
+<p id="appendix-A-3">The authors would like to thank the following people for their
+input and feedback on this document: &lt;&lt;TODO: Add names&gt;&gt;.<a href="#appendix-A-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
 <section id="appendix-B">
-      <h2 id="name-authors-address">
-<a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
+      <h2 id="name-authors-addresses">
+<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>
 <address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Your Name Here</span></div>
-<div dir="auto" class="left"><span class="org">Your Organization Here</span></div>
+        <div dir="auto" class="left"><span class="fn nameRole">Warren Kumari</span></div>
+<div dir="auto" class="left"><span class="org">Google</span></div>
 <div class="email">
 <span>Email:</span>
-<a href="mailto:your.email@example.com" class="email">your.email@example.com</a>
+<a href="mailto:warren@kumari.net" class="email">warren@kumari.net</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Tommy Pauly</span></div>
+<div dir="auto" class="left"><span class="org">Apple, Inc</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:tpauly@apple.com" class="email">tpauly@apple.com</a>
 </div>
 </address>
 </section>
