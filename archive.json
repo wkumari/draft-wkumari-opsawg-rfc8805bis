@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-22T00:02:06.971772+00:00",
+  "timestamp": "2025-04-24T00:02:14.871066+00:00",
   "repo": "wkumari/draft-wkumari-opsawg-rfc8805bis",
   "labels": [
     {
@@ -49,6 +49,87 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDOOaPoes6zfEhm",
+      "title": "Connection Attribute",
+      "url": "https://github.com/wkumari/draft-wkumari-opsawg-rfc8805bis/issues/1",
+      "state": "OPEN",
+      "author": "jlivingood",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Connection attribute is currently defined as:\n> cable: A cable connection.\nfixed: A fixed-line connection (e.g fiber, metro-Ethernet).\ncellular: A cellular connection.\nsatellite: A satellite connection.\nwireless: A wireless connection.\nother: Any other type of connection. ((TODO (WK): I suspect that there is already a list of connection types that we can just reference. In addition, I suspect we should just list connection attributes, such as latency, bandwidth, \"cost\", jitter, etc. Otherwise, we are going to have to keep updating this document every time someone invents a new connection type.))\n\nLeveraging what I learned in developing a spec for machine-readable broadband labels and in publishing broadband maps, etc. the following may be better:\n1. Access Network Connection Type\nIndicates the access network technology used.\nThis field MUST be in the file and MUST be populated.\nField: connection_type\nType/Format: string\nExamples: fixed, mobile, satellite\n\n2. Network Technology Type.\nThis indicates the access network technology used for a given BIAS offering. This is a numeric field using\nFCC-defined technology codes, limited to no more than 3 digits length. (In the future, it may be better to\nregister these codes with IANA and to maintain them globally, rather than on a regulator-specific basis.)\n\u2022 If a Fixed plan type, refer to the FCC\u2019s Fixed Technology Codes [42]. For example, hybrid-fiber coaxial\n(HFC) is \u201c40\u201d and fiber to the premises (FTTP) is \u201c50\u201d.\n\u2022 If a Mobile plan type, refer to the FCC\u2019s Mobile Technology Codes [43]. For example, 3G is \u201c300\u201d and\n5G is \u201c500\u201d. This field MUST be in the file and MUST be populated.\nNote that mobile networks (and possibly other network types) may support the newest technology type, such\nas 5G, while also remaining backward compatible with 4G and 3G. In such cases, the newest technology type\nshould be listed, because that is the current version/type of network.\nThis field MUST be in the file and MUST be populated.\nName: network_technology_type\nType/Format: numeric, range (0, 999)\nExamples: 40, 50, 500\n\n[42] \u201cFixed Technology Codes,\u201d Federal Communications Commission (FCC), May 2023 [Online]. Available:\nhttps://help.bdc.fcc.gov/hc/en-us/articles/5290793888795-Fixed-Technology-Codes\n[43] \u201cMobile Technology Codes,\u201d Federal Communications Commission (FCC), Jun. 2023 [Online]. Available:\nhttps://help.bdc.fcc.gov/hc/en-us/articles/6673022944155-Mobile-Technology-Codes\n\n\n\n\nSee also [BITAG Machine Readable BB label specs](https://www.bitag.org/BITAG-BB-Labels.pdf)",
+      "createdAt": "2025-04-22T14:27:04Z",
+      "updatedAt": "2025-04-22T14:27:04Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 2,
+      "id": "I_kwDOOaPoes6zfHrj",
+      "title": "Timestamp and Versioning of File",
+      "url": "https://github.com/wkumari/draft-wkumari-opsawg-rfc8805bis/issues/2",
+      "state": "OPEN",
+      "author": "jlivingood",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "The spec currently has a version, which refers to the version of the standard. That is not the same as the version of the published file. Consumers need a way to know that a file is new - whether via a timestamp or file version. \n\nFrom the BITAG report on machine readable BB labels, which faced a similar issue, maybe this is helpful?\n\nDate Published (_COULD be changed to Date+Time)_\nDate when published in Coordinated Universal Time (UTC), in the ISO 8601 format [40], with hyphens.\nThus the format is YYYY-MM-DD, so 2025-01-15 for example to represent January 15, 2025, according to\nthe current date in UTC.\nThis field MUST be in the file and MUST be used.\nName: date_published\nType/Format: date\nExamples: 2025-01-15, 2025-11-02, 2025-06-06\n\n[40] \u201cISO 8601 - Date and time \u2014 Representations for information interchange,\u201d International Organization\nfor Standardization (ISO), Feb. 2019 [Online]. Available: https://www.iso.org/iso-8601-date-andtime-format.html",
+      "createdAt": "2025-04-22T14:31:48Z",
+      "updatedAt": "2025-04-22T14:31:48Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 3,
+      "id": "I_kwDOOaPoes6zfJ_h",
+      "title": "Reporting Errors & Issues",
+      "url": "https://github.com/wkumari/draft-wkumari-opsawg-rfc8805bis/issues/3",
+      "state": "OPEN",
+      "author": "jlivingood",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "How can a consumer report an issue with a file? Perhaps via a Technical Support URI? (again adapting from a recent BITAG exercise)\n\n\nTechnical Support Information Uniform Resource Indicator (URI).\nThis is the URI containing information about how to obtain customer support for a specific BIAS offering.\nThis field MUST be in the file and MAY be populated. If it does not apply, it SHOULD be left empty.\nName: uri_geoip_support\nType/Format: identifier, uri\nExamples: https://example.com/geoipsupport/internet/, https://example.com/geoipsupport, https://example.com/geoipsupport.html",
+      "createdAt": "2025-04-22T14:35:10Z",
+      "updatedAt": "2025-04-22T14:35:10Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 4,
+      "id": "I_kwDOOaPoes6zfMtm",
+      "title": "Universal Discovery?",
+      "url": "https://github.com/wkumari/draft-wkumari-opsawg-rfc8805bis/issues/4",
+      "state": "OPEN",
+      "author": "jlivingood",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "How will consumers find ip geo feeds? Via a well-known URI? How will the URIs be discovered? From RIR data? ",
+      "createdAt": "2025-04-22T14:39:14Z",
+      "updatedAt": "2025-04-22T14:39:14Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 5,
+      "id": "I_kwDOOaPoes6zfNem",
+      "title": "Intersection of RPKI and IP Geo Feed Validation/Trust",
+      "url": "https://github.com/wkumari/draft-wkumari-opsawg-rfc8805bis/issues/5",
+      "state": "OPEN",
+      "author": "jlivingood",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Given widespread use of RPKI, can this be leveraged to or how does it relate to ip geo file validation and trust?",
+      "createdAt": "2025-04-22T14:40:22Z",
+      "updatedAt": "2025-04-22T14:40:22Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": []
 }
