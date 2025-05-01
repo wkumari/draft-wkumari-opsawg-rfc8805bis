@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-29T00:02:44.462588+00:00",
+  "timestamp": "2025-05-01T00:02:41.774344+00:00",
   "repo": "wkumari/draft-wkumari-opsawg-rfc8805bis",
   "labels": [
     {
@@ -110,9 +110,17 @@
       "labels": [],
       "body": "How will consumers find ip geo feeds? Via a well-known URI? How will the URIs be discovered? From RIR data? ",
       "createdAt": "2025-04-22T14:39:14Z",
-      "updatedAt": "2025-04-22T14:39:14Z",
+      "updatedAt": "2025-04-29T17:27:04Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "wkumari",
+          "authorAssociation": "OWNER",
+          "body": "This is already covered in [[RFC9632 - \"Finding and Using Geofeed Data\"](https://datatracker.ietf.org/doc/rfc9632/)](https://datatracker.ietf.org/doc/rfc9632/) . For obvious reasons, this only covers [[RFC8805 - \"A Format for Self-Published IP Geolocation Feeds\"](https://datatracker.ietf.org/doc/rfc8805/)](https://datatracker.ietf.org/doc/rfc8805/) format, but the same solution works for whatever format (potentially with a new tag).\n\nThe way that this works is an address holder publishes their feed location in the RIR (using the \"geofeed:\" RPSL attribute, or the older \"remarks   Geofeed:\" if they havent updated yet).\n\nConsumers ingest this data by downloading the RIR DB, running 'whois' for the address, or they can download all validated feeds at once from https://geolocatemuch.com/geofeeds/validated-all.csv.\n\nExample using whois (for the IETF meeting network):\n```\n$ whois 31.130.224.1 | grep -i geo\nremarks:        Geofeed https://noc.ietf.org/geo/google.csv\n```\n\nOr, using e.g RIPE's data (running `whois` for each prefix doesn't scale):\n```\n$ rg -A 18 'inetnum:        31.130.224.0'  ripe.db    \n\ninetnum:        31.130.224.0 - 31.130.239.255\nnetname:        ietf-meeting-network\ndescr:          IETF Meeting Network\ncountry:        CH\norg:            ORG-IS136-RIPE\nadmin-c:        DUMY-RIPE\ntech-c:         DUMY-RIPE\nstatus:         ASSIGNED PI\nmnt-by:         RIPE-NCC-END-MNT\nmnt-by:         IETF-MNT\nmnt-by:         netnod-mnt\nmnt-routes:     ietf-mnt\nmnt-domains:    ietf-mnt\nnotify:         ripedb-updates@noc.ietf.org\ncreated:        2011-05-10T10:10:10Z\nlast-modified:  2021-08-31T18:46:35Z\nsource:         RIPE\nremarks:        Geofeed https://noc.ietf.org/geo/google.csv\nsponsoring-org: ORG-NIE1-RIPE\n```\n\nFor a sense of scale, the RIPE database has ~44,000 geo-located prefixes:\n```\nrg --no-line-number -i geofeed ripe.db | wc -l  \n   44107\n``` \nand ~3,000 unique.\n\nThis is because many geofeed files contain multiple prefixes. For example, Hostinger publishes https://raw.githubusercontent.com/hostinger/geofeed/main/geofeed.csv , which contains ~800 prefixes. This is much of the reason for having an array in the JSON format.\n\n\nMost CDNs / providers already ingest the RIR data for building routing policy, parsing AS-SETs, etc.\nIf they don't want to though, Massimo publishes a validated feeds at all of the data on https://geolocatemuch.com/\n\n",
+          "createdAt": "2025-04-29T17:27:03Z",
+          "updatedAt": "2025-04-29T17:27:03Z"
+        }
+      ]
     },
     {
       "number": 5,
@@ -126,9 +134,17 @@
       "labels": [],
       "body": "Given widespread use of RPKI, can this be leveraged to or how does it relate to ip geo file validation and trust?",
       "createdAt": "2025-04-22T14:40:22Z",
-      "updatedAt": "2025-04-22T14:40:22Z",
+      "updatedAt": "2025-04-29T14:56:29Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "wkumari",
+          "authorAssociation": "OWNER",
+          "body": "This is already covered by [[RFC9632 - \"Finding and Using Geofeed Data\"](https://datatracker.ietf.org/doc/rfc9632/)](https://datatracker.ietf.org/doc/rfc9632/)\n\nThere will likely need to be a note added on canonicalization, but the same solution applies.",
+          "createdAt": "2025-04-29T14:56:28Z",
+          "updatedAt": "2025-04-29T14:56:28Z"
+        }
+      ]
     }
   ],
   "pulls": []
